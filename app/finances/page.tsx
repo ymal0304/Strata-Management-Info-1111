@@ -67,21 +67,21 @@ export default function FinancesPage() {
       </div>
 
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-semibold mb-4">Financial Records</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Financial Records</h2>
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                   Date
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                   Description
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                   Amount
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                   Type
                 </th>
               </tr>
@@ -89,16 +89,16 @@ export default function FinancesPage() {
             <tbody className="bg-white divide-y divide-gray-200">
               {records.map((record, index) => (
                 <tr key={index}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
                     {record.date}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
                     {record.description}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
                     ${record.amount.toLocaleString()}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
                     <span
                       className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                         record.type === 'income'
@@ -117,17 +117,19 @@ export default function FinancesPage() {
       </div>
 
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-semibold mb-4">Upcoming Levy Payments</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Upcoming Levy Payments</h2>
         <div className="space-y-4">
           <div className="border-b pb-4">
-            <h3 className="text-lg font-medium">Q2 2024 Levy</h3>
-            <p className="text-gray-600">Due Date: June 1, 2024</p>
-            <p className="text-gray-600">Amount: $1,200 per unit</p>
+            <h3 className="text-lg font-medium text-gray-800">Quarterly Levy</h3>
+            <p className="text-gray-700">Due Date: April 1, 2024</p>
+            <p className="text-gray-700">Amount: $2,500</p>
+            <p className="text-gray-700">Status: Pending</p>
           </div>
           <div className="border-b pb-4">
-            <h3 className="text-lg font-medium">Q3 2024 Levy</h3>
-            <p className="text-gray-600">Due Date: September 1, 2024</p>
-            <p className="text-gray-600">Amount: $1,200 per unit</p>
+            <h3 className="text-lg font-medium text-gray-800">Special Levy</h3>
+            <p className="text-gray-700">Due Date: April 15, 2024</p>
+            <p className="text-gray-700">Amount: $1,000</p>
+            <p className="text-gray-700">Status: Pending</p>
           </div>
         </div>
       </div>
