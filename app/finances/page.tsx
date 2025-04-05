@@ -10,7 +10,7 @@ interface FinancialRecord {
 }
 
 export default function FinancesPage() {
-  const [records, setRecords] = useState<FinancialRecord[]>([
+  const [records] = useState<FinancialRecord[]>([
     {
       date: '2024-03-01',
       description: 'Quarterly Levy Payment - Unit 101',

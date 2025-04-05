@@ -10,7 +10,7 @@ interface CommitteeMember {
 }
 
 export default function CommitteePage() {
-  const [members, setMembers] = useState<CommitteeMember[]>([
+  const [members] = useState<CommitteeMember[]>([
     {
       name: 'John Smith',
       role: 'Chairperson',
