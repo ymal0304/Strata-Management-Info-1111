@@ -59,10 +59,10 @@ export default function CommunicationPage() {
       <h1 className="text-3xl font-bold text-blue-800">Communication Portal</h1>
 
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-semibold mb-4">Post a Message</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Post a Message</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="category" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="category" className="block text-sm font-medium text-gray-800">
               Category
             </label>
             <select
@@ -78,7 +78,7 @@ export default function CommunicationPage() {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="message" className="block text-sm font-medium text-gray-800">
               Message
             </label>
             <textarea
@@ -93,7 +93,7 @@ export default function CommunicationPage() {
 
           <button
             type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+            className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
             Post Message
           </button>
@@ -101,13 +101,13 @@ export default function CommunicationPage() {
       </div>
 
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-semibold mb-4">Recent Messages</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Recent Messages</h2>
         <div className="space-y-6">
           {messages.map((message) => (
             <div key={message.id} className="border-b pb-4">
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="text-lg font-medium">{message.author}</h3>
+                  <h3 className="text-lg font-medium text-gray-800">{message.author}</h3>
                   <span
                     className={`inline-block px-2 py-1 text-xs rounded-full ${
                       message.category === 'announcement'
@@ -120,19 +120,19 @@ export default function CommunicationPage() {
                     {message.category.charAt(0).toUpperCase() + message.category.slice(1)}
                   </span>
                 </div>
-                <span className="text-sm text-gray-500">{message.timestamp}</span>
+                <span className="text-sm text-gray-800">{message.timestamp}</span>
               </div>
-              <p className="mt-2 text-gray-700">{message.content}</p>
+              <p className="mt-2 text-gray-800">{message.content}</p>
             </div>
           ))}
         </div>
       </div>
 
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-semibold mb-4">Important Contacts</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Important Contacts</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="p-4 bg-gray-50 rounded-lg">
-            <h3 className="font-medium">Emergency Contacts</h3>
+            <h3 className="font-medium text-gray-800">Emergency Contacts</h3>
             <ul className="mt-2 space-y-2">
               <li>Building Manager: 0400 000 000</li>
               <li>Emergency Maintenance: 1300 000 000</li>
@@ -140,7 +140,7 @@ export default function CommunicationPage() {
             </ul>
           </div>
           <div className="p-4 bg-gray-50 rounded-lg">
-            <h3 className="font-medium">Committee Members</h3>
+            <h3 className="font-medium text-gray-800">Committee Members</h3>
             <ul className="mt-2 space-y-2">
               <li>Chairperson: chair@example.com</li>
               <li>Secretary: secretary@example.com</li>

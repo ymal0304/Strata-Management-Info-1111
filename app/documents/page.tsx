@@ -60,7 +60,7 @@ export default function DocumentsPage() {
 
       <div className="bg-white rounded-lg shadow-md p-6">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-semibold">Building Documents</h2>
+          <h2 className="text-2xl font-semibold text-gray-800">Building Documents</h2>
           <div className="flex space-x-2">
             {categories.map((category) => (
               <button
@@ -82,22 +82,22 @@ export default function DocumentsPage() {
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
                   Title
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
                   Category
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
                   Upload Date
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
                   Size
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
                   Type
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
                   Actions
                 </th>
               </tr>
@@ -105,22 +105,22 @@ export default function DocumentsPage() {
             <tbody className="bg-white divide-y divide-gray-200">
               {filteredDocuments.map((document) => (
                 <tr key={document.id}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                     {document.title}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                     {document.category}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                     {document.uploadDate}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                     {document.size}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                     {document.type}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                     <button className="text-blue-600 hover:text-blue-800">
                       Download
                     </button>
@@ -133,7 +133,7 @@ export default function DocumentsPage() {
       </div>
 
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-semibold mb-4">Upload New Document</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Upload New Document</h2>
         <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
           <div className="space-y-4">
             <p className="text-gray-600">Drag and drop files here or</p>

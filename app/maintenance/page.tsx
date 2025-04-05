@@ -3,43 +3,52 @@
 import { useState } from 'react';
 
 interface MaintenanceRequest {
+  id: number;
   title: string;
   description: string;
+  status: 'pending' | 'in-progress' | 'completed';
   priority: 'low' | 'medium' | 'high';
-  location: string;
-  contactName: string;
-  contactEmail: string;
+  date: string;
+  location?: string;
+  contactName?: string;
+  contactEmail?: string;
 }
 
 export default function MaintenancePage() {
-  const [request, setRequest] = useState<MaintenanceRequest>({
-    title: '',
-    description: '',
-    priority: 'medium',
-    location: '',
-    contactName: '',
-    contactEmail: '',
-  });
+  const [request, setRequest] = useState<Partial<MaintenanceRequest>>({});
+  const [requests] = useState<MaintenanceRequest[]>([
+    {
+      id: 1,
+      title: 'Broken Elevator',
+      description: 'Elevator in Building A is not working properly',
+      status: 'pending',
+      priority: 'high',
+      date: '2024-03-20',
+    },
+    {
+      id: 2,
+      title: 'Garden Maintenance',
+      description: 'Regular garden maintenance required',
+      status: 'in-progress',
+      priority: 'medium',
+      date: '2024-03-18',
+    },
+    {
+      id: 3,
+      title: 'Pool Cleaning',
+      description: 'Weekly pool cleaning service',
+      status: 'completed',
+      priority: 'low',
+      date: '2024-03-15',
+    },
+  ]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, this would send the data to a server
-    console.log('Maintenance request submitted:', request);
-    alert('Maintenance request submitted successfully!');
-    // Reset form
-    setRequest({
-      title: '',
-      description: '',
-      priority: 'medium',
-      location: '',
-      contactName: '',
-      contactEmail: '',
-    });
+    // Handle form submission
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setRequest((prev) => ({ ...prev, [name]: value }));
   };
@@ -47,48 +56,92 @@ export default function MaintenancePage() {
   return (
     <div className="space-y-8">
       <h1 className="text-3xl font-bold text-blue-800">Maintenance Requests</h1>
+      
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Active Requests</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
+                  Title
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
+                  Description
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
+                  Status
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
+                  Priority
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider">
+                  Date
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {requests.map((request) => (
+                <tr key={request.id}>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                    {request.title}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                    {request.description}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                    {request.status}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                    {request.priority}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                    {request.date}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-semibold mb-4">Submit a Maintenance Request</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Submit New Request</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="title" className="block text-sm font-medium text-gray-800">
               Title
             </label>
             <input
               type="text"
               id="title"
               name="title"
-              value={request.title}
+              value={request.title || ''}
               onChange={handleChange}
-              required
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />
           </div>
-
           <div>
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="description" className="block text-sm font-medium text-gray-800">
               Description
             </label>
             <textarea
               id="description"
               name="description"
-              value={request.description}
+              value={request.description || ''}
               onChange={handleChange}
-              required
-              rows={4}
+              rows={3}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />
           </div>
-
           <div>
-            <label htmlFor="priority" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="priority" className="block text-sm font-medium text-gray-800">
               Priority
             </label>
             <select
               id="priority"
               name="priority"
-              value={request.priority}
+              value={request.priority || ''}
               onChange={handleChange}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             >
@@ -97,77 +150,52 @@ export default function MaintenancePage() {
               <option value="high">High</option>
             </select>
           </div>
-
           <div>
-            <label htmlFor="location" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="location" className="block text-sm font-medium text-gray-800">
               Location
             </label>
             <input
               type="text"
               id="location"
               name="location"
-              value={request.location}
+              value={request.location || ''}
               onChange={handleChange}
-              required
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />
           </div>
-
           <div>
-            <label htmlFor="contactName" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="contactName" className="block text-sm font-medium text-gray-800">
               Contact Name
             </label>
             <input
               type="text"
               id="contactName"
               name="contactName"
-              value={request.contactName}
+              value={request.contactName || ''}
               onChange={handleChange}
-              required
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />
           </div>
-
           <div>
-            <label htmlFor="contactEmail" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="contactEmail" className="block text-sm font-medium text-gray-800">
               Contact Email
             </label>
             <input
               type="email"
               id="contactEmail"
               name="contactEmail"
-              value={request.contactEmail}
+              value={request.contactEmail || ''}
               onChange={handleChange}
-              required
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />
           </div>
-
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
             Submit Request
           </button>
         </form>
-      </div>
-
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-semibold mb-4">Recent Requests</h2>
-        <div className="space-y-4">
-          <div className="border-b pb-4">
-            <h3 className="text-lg font-medium">Elevator Maintenance</h3>
-            <p className="text-gray-600">Status: In Progress</p>
-            <p className="text-gray-600">Priority: High</p>
-            <p className="text-gray-600">Submitted: March 28, 2024</p>
-          </div>
-          <div className="border-b pb-4">
-            <h3 className="text-lg font-medium">Garden Maintenance</h3>
-            <p className="text-gray-600">Status: Completed</p>
-            <p className="text-gray-600">Priority: Medium</p>
-            <p className="text-gray-600">Submitted: March 25, 2024</p>
-          </div>
-        </div>
       </div>
     </div>
   );
