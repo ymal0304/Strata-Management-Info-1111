@@ -62,7 +62,7 @@ export default function CommunicationPage() {
         <h2 className="text-2xl font-semibold mb-4 text-gray-800">Post a Message</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="category" className="block text-sm font-medium text-gray-800">
+            <label htmlFor="category" className="block text-sm font-medium text-gray-900">
               Category
             </label>
             <select
@@ -78,7 +78,7 @@ export default function CommunicationPage() {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-800">
+            <label htmlFor="message" className="block text-sm font-medium text-gray-900">
               Message
             </label>
             <textarea
@@ -132,7 +132,7 @@ export default function CommunicationPage() {
         <h2 className="text-2xl font-semibold mb-4 text-gray-800">Important Contacts</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="p-4 bg-gray-50 rounded-lg">
-            <h3 className="font-medium text-gray-800">Emergency Contacts</h3>
+            <h3 className="font-medium text-gray-900">Emergency Contacts</h3>
             <ul className="mt-2 space-y-2">
               <li>Building Manager: 0400 000 000</li>
               <li>Emergency Maintenance: 1300 000 000</li>
@@ -140,7 +140,7 @@ export default function CommunicationPage() {
             </ul>
           </div>
           <div className="p-4 bg-gray-50 rounded-lg">
-            <h3 className="font-medium text-gray-800">Committee Members</h3>
+            <h3 className="font-medium text-gray-900">Committee Members</h3>
             <ul className="mt-2 space-y-2">
               <li>Chairperson: chair@example.com</li>
               <li>Secretary: secretary@example.com</li>
